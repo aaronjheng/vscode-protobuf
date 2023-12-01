@@ -1,8 +1,8 @@
 {
-  "name": "vscode-protobuf",
-  "displayName": "Protobuf",
-  "description": "Protobuf for Visual Studio Code",
-  "version": "0.5.2",
+  "name": "protocol-buffers",
+  "displayName": "Protocol Buffers",
+  "description": "Protocol Buffers for Visual Studio Code",
+  "version": "0.6.0",
   "icon": "assets/logo.png",
   "publisher": "protobuf",
   "repository": {
@@ -84,6 +84,13 @@
           "Protobuf"
         ]
       }
+    ],
+    "grammars": [
+      {
+        "language": "proto",
+        "scopeName": "source.protobuf",
+        "path": "./syntaxes/protobuf.tmLanguage.json"
+      }
     ]
   },
   "main": "./out/extension.js",
@@ -100,9 +107,6 @@
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.8.9",
     "@types/vscode": "^1.83.1",
-    "@typescript-eslint/eslint-plugin": "^6.9.0",
-    "@typescript-eslint/parser": "^5.62.0",
-    "eslint": "^8.42.0",
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
     "typescript": "^5.1.6",
