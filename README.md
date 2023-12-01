@@ -1,4 +1,4 @@
-# Protobuf for Visual Studio Code
+# Protocol Buffers for Visual Studio Code
 
 ## Installation
 
