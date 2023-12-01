@@ -1,16 +1,13 @@
 {
-  "name": "vscode-buf",
-  "displayName": "Buf",
-  "description": "Visual Studio Code support for Buf",
+  "name": "vscode-protobuf",
+  "displayName": "Protobuf",
+  "description": "Protobuf for Visual Studio Code",
   "version": "0.5.2",
-  "icon": "logo.png",
-  "publisher": "bufbuild",
+  "icon": "assets/logo.png",
+  "publisher": "protobuf",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bufbuild/vscode-buf.git"
-  },
-  "bugs": {
-    "url": "https://github.com/bufbuild/vscode-buf/issues"
+    "url": "https://github.com/aaronjheng/vscode-protobuf.git"
   },
   "license": "Apache-2.0",
   "licenses": [
@@ -31,8 +28,6 @@
     "proto3",
     "protobuf",
     "protocol buffers",
-    "buf",
-    "bufbuild",
     "lint",
     "format"
   ],
@@ -50,12 +45,12 @@
     "commands": [
       {
         "category": "Linters",
-        "command": "vscode-buf.lint",
+        "command": "vscode-protobuf.lint",
         "title": "Lint protobuf files using Buf"
       }
     ],
     "configuration": {
-      "title": "Buf",
+      "title": "Protobuf",
       "properties": {
         "buf.binaryPath": {
           "type": "string",
@@ -98,8 +93,7 @@
     "watch": "npx tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "npx eslint src --ext ts",
-    "test": "node ./out/test/runTest.js",
-    "package": "vsce package"
+    "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
     "@types/glob": "^8.1.0",
@@ -112,7 +106,6 @@
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
     "typescript": "^5.1.6",
-    "vsce": "^2.15.0",
     "@vscode/test-electron": "^2.3.6"
   }
 }

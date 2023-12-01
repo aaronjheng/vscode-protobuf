@@ -11,7 +11,7 @@ for detailed installation instructions.
 - Lints your protobuf files using `buf lint`. It checks your currently opened file
   whenever you save it.
 
-  ![Lint errors](./lint_errors.png)
+  ![Lint errors](./assets/lint_errors.png)
   
 - Formats your protobuf files using `buf format`.
 
