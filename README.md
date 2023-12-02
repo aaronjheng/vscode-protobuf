@@ -21,7 +21,7 @@ for detailed installation instructions.
 
 This extension contributes the following settings:
 
-- `buf.binaryPath`: configure the path to your buf binary. By default it uses `buf` in your `$PATH`.
+- `protobuf.bufPath`: configure the path to your buf binary. By default it uses `buf` in your `$PATH`.
 
 ## License
 

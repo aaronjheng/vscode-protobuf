@@ -3,6 +3,7 @@ import * as os from "os";
 import * as path from "path";
 import * as vscode from "vscode";
 import { TextEncoder } from "util";
+import { output } from "./logging";
 
 export class Formatter implements vscode.DocumentFormattingEditProvider {
     readonly binaryPath: string = '';
@@ -41,7 +42,7 @@ export class Formatter implements vscode.DocumentFormattingEditProvider {
         token: vscode.CancellationToken
     ): Thenable<vscode.TextEdit[]> {
         return new Promise<vscode.TextEdit[]>((resolve, reject) => {
-            const cwd = path.join(os.tmpdir(), "vscode-buf-" + this.randomId());
+            const cwd = path.join(os.tmpdir(), "vscode-protobuf-" + this.randomId());
             vscode.workspace.fs.createDirectory(vscode.Uri.file(cwd)).then(() => {
                 // Buf format expects a `.proto` file, so add unique id as a prefix.
                 const backupFile = path.join(cwd, this.randomId() + "-" + path.basename(document.fileName));

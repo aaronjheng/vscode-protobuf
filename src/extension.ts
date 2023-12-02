@@ -4,15 +4,18 @@ import { isError } from "./errors";
 import { Formatter } from "./formatter";
 import { parseLines, Warning } from "./parser";
 import { format, less } from "./version";
+import { output } from "./logging";
 
 export function activate(context: vscode.ExtensionContext) {
   const binaryPath = vscode.workspace
-    .getConfiguration("buf")!
-    .get<string>("binaryPath");
+    .getConfiguration("protobuf")!
+    .get<string>("bufPath");
   if (binaryPath === undefined) {
     console.log("buf binary path was not set");
     return;
   }
+
+  output("Extension activated")
 
   const binaryVersion = version(binaryPath);
   if (isError(binaryVersion)) {
@@ -23,7 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
     if (less(binaryVersion, minimumVersion)) {
       vscode.window
         .showErrorMessage(
-          `This version of vscode-buf requires at least version ${format(
+          `This version of vscode-protobuf requires at least version ${format(
             minimumVersion
           )} of buf.
           You are current on version ${format(
@@ -59,7 +62,7 @@ export function activate(context: vscode.ExtensionContext) {
   }
 
   const diagnosticCollection = vscode.languages.createDiagnosticCollection(
-    "vscode-buf.lint"
+    "protobuf.lint"
   );
   const doLint = (document: vscode.TextDocument) => {
     if (!document.uri.path.endsWith(".proto")) {
@@ -81,8 +84,8 @@ export function activate(context: vscode.ExtensionContext) {
     }
 
     const binaryPath = vscode.workspace
-      .getConfiguration("buf")!
-      .get<string>("binaryPath");
+      .getConfiguration("protobuf")!
+      .get<string>("bufPath");
     if (binaryPath === undefined) {
       console.log("buf binary path was not set");
       return;
@@ -137,7 +140,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(vscode.workspace.onDidOpenTextDocument(doLint));
   context.subscriptions.push(
     vscode.commands.registerTextEditorCommand(
-      "vscode-buf.lint",
+      "protobuf.lint",
       (textEditor: vscode.TextEditor) => {
         doLint(textEditor.document);
       }

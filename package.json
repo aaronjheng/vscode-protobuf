@@ -45,14 +45,14 @@
     "commands": [
       {
         "category": "Linters",
-        "command": "vscode-protobuf.lint",
+        "command": "protobuf.lint",
         "title": "Lint protobuf files using Buf"
       }
     ],
     "configuration": {
       "title": "Protobuf",
       "properties": {
-        "buf.binaryPath": {
+        "protobuf.bufPath": {
           "type": "string",
           "default": "buf",
           "description": "Path to the buf binary"
